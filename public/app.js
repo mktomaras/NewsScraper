@@ -2,12 +2,15 @@ $("#scrapeBtn").on("click", function(){
     $.get("/scrape").then(function(data){
         getArticles();
     })
-
 })
 
 $("#clearBtn").on("click", function(){
     $(".card").remove();
 });
+
+$("#prevBtn").on("click", function(){
+    getArticles();
+})
 
 function getArticles() {
     $.getJSON("/articles", function(data){
@@ -18,8 +21,9 @@ function getArticles() {
 }
 
 // $(document).on("click", "#noteBtn", function() {
-//     $("#notes").empty();
+//     console.log("button clicked");
 //     var thisId = $(this).attr("data-id");
+//     console.log(thisId);
   
 //     $.ajax({
 //       method: "GET",
@@ -39,7 +43,7 @@ function getArticles() {
 //       });
 //   });
   
-//   $(document).on("click", "#savenote", function() {
+//   $(document).on("click", "#noteSubmit", function() {
     
 //     var thisId = $(this).attr("data-id");
   

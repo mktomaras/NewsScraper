@@ -22,12 +22,8 @@ app.get("/scrape", function(req, res){
         $("h2.c-entry-box--compact__title").each(function(i, element) {
             var result = {};
 
-            result.title = $(this)
-            .children("a")
-            .text();
-            result.link = $(this)
-            .children("a")
-            .attr("href");
+            result.title = $(this).children("a").text();
+            result.link = $(this).children("a").attr("href");
 
             db.Article.create(result)
             .then(function(dbArticle){

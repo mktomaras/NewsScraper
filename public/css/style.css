@@ -21,7 +21,7 @@ h3 {
     width: 80px;
 }
 
-#scrapeBtn, #clearBtn, #noteSubmit {
+#scrapeBtn, #clearBtn, #noteSubmit, #prevBtn {
     margin-top: 20px;
     margin-right: 5px;
 }
