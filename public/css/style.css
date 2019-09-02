@@ -1,0 +1,27 @@
+.jumbotron {
+    background-image: url("../assets/imageedit_3_7323930844.jpg");
+    height: 300px;
+}
+
+h1 {
+    color: white;
+    font-size: 64px;
+}
+
+h3 {
+    color: white;
+}
+
+#btnText {
+    color: white;
+}
+
+#voxlogo {
+    height: 50px;
+    width: 80px;
+}
+
+#scrapeBtn, #clearBtn, #noteSubmit {
+    margin-top: 20px;
+    margin-right: 5px;
+}
