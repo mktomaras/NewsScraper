@@ -19,11 +19,45 @@ app.get("/scrape", function(req, res){
     axios.get("https://www.vox.com/the-highlight").then(function(response){
         var $ = cheerio.load(response.data);
 
-        $("h2.c-entry-box--compact__title").each(function(i, element) {
+        $(".c-compact-river__entry").each(function(i, element) {
             var result = {};
 
-            result.title = $(this).children("a").text();
-            result.link = $(this).children("a").attr("href");
+            result.title = $(this)
+            .find("div.c-entry-box--compact")
+            .find("div.c-entry-box--compact__body")
+            .find("h2.c-entry-box--compact__title")
+            .children("a")
+            .text();
+
+            result.link = $(this)
+            .find("div.c-entry-box--compact")
+            .find("div.c-entry-box--compact__body")
+            .find("h2.c-entry-box--compact__title")
+            .children("a")
+            .attr("href");
+
+            result.image = $(this)
+            .find("div.c-entry-box--compact")
+            .find("a.c-entry-box--compact__image-wrapper")
+            .find("div.c-entry-box--compact__image")
+            .find("noscript")
+            .text();           
+
+            result.articleDate = $(this)
+            .find("div.c-entry-box--compact")
+            .find("div.c-entry-box--compact__body")
+            .find("div.c-byline")
+            .find("span.c-byline__item")
+            .find("time.c-byline__item")
+            .text();
+
+            result.author = $(this)
+            .find("div.c-entry-box--compact")
+            .find("div.c-entry-box--compact__body")
+            .find("div.c-byline")
+            .find("span.c-byline__item")
+            .find("span.c-byline__author-name")
+            .text();
 
             db.Article.create(result)
             .then(function(dbArticle){

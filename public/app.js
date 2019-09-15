@@ -15,7 +15,7 @@ $("#prevBtn").on("click", function(){
 function getArticles() {
     $.getJSON("/articles", function(data){
         for (var i = 0; i < data.length; i++) {
-            $("#articles").append("<div class='card'><div class='card-body' data-id='" + data[i]._id + "'><h4><a target='_blank' href='" + data[i].link + "'>" + data[i].title + "'</a></h4><button type='button' class='btn btn-success btn-sm' id='noteBtn'><a href='./notes.html' id='btnText'>Add Note</a></button></div></div>");
+            $("#articles").append("<div class='card'><div class='row no-gutters'><div class='col-sm-4'>" + data[i].image + "</div><div class='col-sm-8'><div class='card-body' data-id='" + data[i]._id + "'><h3><a target='_blank' href='" + data[i].link + "'>" + data[i].title + "</a></h3><h5>Written by " + data[i].author + " | " + data[i].articleDate + "</h5><button type='button' class='btn btn-success btn-sm' id='noteBtn'><a href='./notes.html' id='btnText'>Add Note</a></button></div></div></div>");
         }
     });
 }

@@ -12,6 +12,18 @@ var SaveArticles = new Schema({
         type: String,
         required: true
     },
+    image: {
+        type: String,
+        required: true
+    },
+    articleDate: {
+        type: String,
+        required: true
+    },
+    author: {
+        type: String,
+        required: true
+    },
     note: {
         type: Schema.Types.ObjectId,
         ref: "Notes"
