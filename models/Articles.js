@@ -26,7 +26,7 @@ var SaveArticles = new Schema({
     },
     note: {
         type: Schema.Types.ObjectId,
-        ref: "Notes"
+        ref: "Note"
     }
 });
 

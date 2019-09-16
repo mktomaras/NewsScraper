@@ -11,19 +11,47 @@
 <body>
     <div class="jumbotron text-center">
         <h1>News Scraper</h1>
-        <h3>The Highlight from <span><img id="voxlogo" src="./assets/VoxLogo.png"></span></h3>
+        <h3>The Highlight from <span><a href="https://www.vox.com/the-highlight" target="_blank"><img id="voxlogo" src="./assets/VoxLogo.png"></a></span></h3>
         <button type="button" class="btn btn-success btn-sm" id="scrapeBtn">Scrape for New Articles</button>
-        <button type="button" class="btn btn-success btn-sm" id="prevBtn">Previously Scraped Articles</button>
         <button type="button" class="btn btn-success btn-sm" id="clearBtn">Clear Articles</button>
     </div>
-<img src="" alt="">
     <div class="container">
       <div class="row">
         <div class="col-12">
             <div id="articles"></div>
         </div>
       </div>
-    </div>   
+    </div> 
+    
+    <div class='modal fade' id='notesModal' tabindex='-1' role='dialog'>
+        <div class='modal-dialog' role='document'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <h5 class='modal-title'>
+                    </h5>
+                    <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                        <span aria-hidden='true'>
+                            &times;
+                        </span>
+                    </button>
+                </div>
+                <div class='modal-body'>
+                    <form>
+                        <div class='form-group'>
+                            <input type='text' class='form-control' id='insertTitle' placeholder='Enter title for note'>
+                        </div>
+                        <div class='form-group'>
+                            <label for='notes'>
+                                Enter Comments
+                            </label>
+                            <textarea class='form-control' id='insertNote' rows='3'>
+                            </textarea>
+                            <button type='submit' class='btn btn-success btn-sm' id='noteSubmit'>
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
