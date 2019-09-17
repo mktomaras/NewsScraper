@@ -12,16 +12,12 @@ h3 {
     color: white;
 }
 
-#btnText {
-    color: white;
-}
-
 #voxlogo {
     height: 50px;
     width: 80px;
 }
 
-#scrapeBtn, #clearBtn, #noteSubmit, #prevBtn {
+#scrapeBtn {
     margin-top: 20px;
     margin-right: 5px;
 }
@@ -29,4 +25,8 @@ h3 {
 img {
     max-height: 200px;
     width: 18rem;
+}
+
+#viewBtn {
+    margin-left: 10px;
 }

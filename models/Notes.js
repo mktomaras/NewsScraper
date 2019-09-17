@@ -10,7 +10,12 @@ var SaveNotes = new Schema({
     body: {
         type: String,
         required: true
+    },
+    articleId: {
+        type: Schema.Types.ObjectId,
+        ref: "Article"
     }
+
 });
 
 var Note = mongoose.model("Note", SaveNotes);

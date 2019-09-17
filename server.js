@@ -106,6 +106,16 @@ app.post("/articles/:id", function(req, res) {
   });
 });
 
+app.get("/notes/:id", function(req, res) {
+  db.Note.find({ articleId: req.params.id})
+  .then(function(dbNote) {
+    res.json(dbNote)
+  })
+  .catch(function(err){
+    res.json(err);
+  });
+});
+
 app.listen(PORT, function() {
     console.log("Listening on http://localhost:" + PORT);
   });
