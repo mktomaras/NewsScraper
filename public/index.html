@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,22 @@
     <link rel="stylesheet" href="css/style.css">
     <title>News Scraper</title>
 </head>
+
 <body>
     <div class="jumbotron text-center">
         <h1>News Scraper</h1>
-        <h3>The Highlight from <span><a href="https://www.vox.com/the-highlight" target="_blank"><img id="voxlogo" src="./assets/VoxLogo.png"></a></span></h3>
+        <h3>The Highlight from <span><a href="https://www.vox.com/the-highlight" target="_blank"><img id="voxlogo"
+                        src="./assets/VoxLogo.png"></a></span></h3>
         <button type="button" class="btn btn-success btn-sm" id="scrapeBtn">Scrape for New Articles</button>
     </div>
     <div class="container">
-      <div class="row">
-        <div class="col-12">
-            <div id="articles"></div>
+        <div class="row">
+            <div class="col-12">
+                <div id="articles"></div>
+            </div>
         </div>
-      </div>
-    </div> 
-    
+    </div>
+
     <div class='modal fade' id='notesModal' tabindex='-1' role='dialog'>
         <div class='modal-dialog' role='document'>
             <div class='modal-content'>
@@ -51,10 +54,25 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class='modal fade' id='savedNotesModal' tabindex='-1' role='dialog'>
+        <div class='modal-dialog' role='document'>
+            <div class='modal-content' id="listNotes">
+                <div class='modal-header'>
+                    <h5 class='modal-title'>Saved Notes</h5>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
 
 </body>
+
 </html>

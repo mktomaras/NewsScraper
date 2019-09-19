@@ -117,9 +117,9 @@ app.get("/notes/:id", function(req, res) {
 });
 
 app.delete("/notes/:id", function(req, res) {
-  db.Note.find({ _id: req.params.id })
-  .then(function(dbNotes){
-
+  db.Note.findByIdAndDelete({ _id: req.params.id })
+  .then(function(){
+    res.sendStatus(200);
   })
 })
 
