@@ -116,6 +116,13 @@ app.get("/notes/:id", function(req, res) {
   });
 });
 
+app.delete("/notes/:id", function(req, res) {
+  db.Note.find({ _id: req.params.id })
+  .then(function(dbNotes){
+
+  })
+})
+
 app.listen(PORT, function() {
     console.log("Listening on http://localhost:" + PORT);
   });

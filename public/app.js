@@ -55,14 +55,27 @@ $(document).ready( function() {
             url: "/notes/" + articleID
         })
         .then(function(data) {
-            console.log(data);
+            console.log(data)
+            if (data[0].articleId === articleID) {
+                $("#noteSection").css("display", "");                 
+            }
+
+            for (var i=0; i < data.length; i++) {
+                $("#noteContents").append("<div class='row'><div class='col-sm-10'><h6>" + data[i].title + "</h6></div><div class='col-sm-2'><button class='btn btn-danger btn-sm' id='delete' data-btnID='" + data[i]._id + "'>Delete</button></div><div class='col-sm-12'><p>" + data[i].body + "</p></div></div>");
+            } 
+            
         })
+    })
+
+    $(document).on("click", "#closeNotes", function() {
+        $("#noteSection").css("display", "none");
+        
     })
 
     function getArticles() {
         $.getJSON("/articles", function(data){
             for (var i = 0; i < data.length; i++) {
-                $("#articles").append("<div class='card'><div class='row no-gutters'><div class='col-sm-4'>" + data[i].image + "</div><div class='col-sm-8'><div class='card-body' data-id='" + data[i]._id + "'><h3><a target='_blank' href='" + data[i].link + "'>" + data[i].title + "</a></h3><h5>Written by " + data[i].author + " | " + data[i].articleDate + "</h5><button class='btn btn-success btn-sm' id='noteBtn' data-toggle='modal' data-target='#notesModal' data-id='" + data[i]._id + "'>Add Note</button><button class='btn btn-success btn-sm' id='viewBtn' data-id='" + data[i]._id + "'>View Notes</button></div></div></div>");
+                $("#articles").append("<div class='card'><div class='row no-gutters'><div class='col-sm-4'>" + data[i].image + "</div><div class='col-sm-8'><div class='card-body' data-id='" + data[i]._id + "'><h3><a target='_blank' href='" + data[i].link + "'>" + data[i].title + "</a></h3><h5>Written by " + data[i].author + " | " + data[i].articleDate + "</h5><button class='btn btn-success btn-sm' id='noteBtn' data-toggle='modal' data-target='#notesModal' data-id='" + data[i]._id + "'>Add Note</button><button class='btn btn-success btn-sm' id='viewBtn' data-id='" + data[i]._id + "'>View Notes</button></div></div></div><div id='noteSection' class='card' style='display: none;'><div class='card-header'>Notes for <strong>"+ data[i].title + "</strong></div><div class='card-body' data-id='" + data[i]._id + "'><div id='noteContents'></div><button class='btn btn-link' id='closeNotes'>Close Notes</button></div></div>");
             }
         });
     }
