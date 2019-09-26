@@ -116,9 +116,11 @@ app.get("/notes/:id", function(req, res) {
   });
 });
 
-app.delete("/notes/:id", function(req, res) {
-  db.Note.findByIdAndDelete({ _id: req.params.id })
+app.delete("/delete/:id", function(req, res) {
+  console.log("path hit");
+  db.Note.remove({ _id: req.params.id })
   .then(function(){
+    console.log("note removed from db");
     res.sendStatus(200);
   })
 })
